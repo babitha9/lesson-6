@@ -2,12 +2,13 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.util.Timer;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
+import java.awt.Color;
 
 import controller.TimerListener;
 
@@ -48,9 +49,17 @@ public class GameBoard {
         southPanel.add(exitButton);
         cp.add(BorderLayout.SOUTH, southPanel);
 
+        Text t1 = new Text("Click <Start> to Play", 100, 100);
+        t1.color = Color.yellow;
+        canvas.getFigures().add(t1);
+
         timer = new Timer(DELAY, new TimerListener(this));
         timer.start();
         
+    }
+
+    public MyCanvas getCanvas() {
+        return canvas;
     }
 }
  

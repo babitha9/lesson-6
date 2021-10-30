@@ -15,7 +15,15 @@ public class TimerListener implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("timer went off");
+        for (var f: gameBoard.getCanvas().getFigures()) {
+            f.move();
+        }
+        detectCollision();
+        gameBoard.getCanvas().repaint();
+    }
+
+    private void detectCollision() {
+
     }
     
 }
