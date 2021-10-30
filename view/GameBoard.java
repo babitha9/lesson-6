@@ -16,6 +16,7 @@ public class GameBoard {
 
     public static final int WIDTH = 600;
     public static final int HEIGHT = 400;
+    public static final int CELL_SIZE = 20;
     public static final int FPS = 4;
     public static final int DELAY = 1000 / FPS;
     
