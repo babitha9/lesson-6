@@ -23,7 +23,7 @@ public class SnakeMoveAliveStrategy implements SnakeMoveStrategy {
             case LEFT:
                 composite.get(0).x -= GameBoard.CELL_SIZE;
                 break;
-             case RIGHT:
+            case RIGHT:
                 composite.get(0).x += GameBoard.CELL_SIZE;
                 break;       
             case UP:
@@ -33,6 +33,14 @@ public class SnakeMoveAliveStrategy implements SnakeMoveStrategy {
                 composite.get(0).y += GameBoard.CELL_SIZE;
                 break;
         }
+    }
+
+    public Snake getSnake() {
+        return snake;
+    }
+
+    public void setSnake(Snake snake) {
+        this.snake = snake;
     }
     
 }

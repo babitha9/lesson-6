@@ -46,6 +46,10 @@ public class Snake extends GameElement {
         this.moveStrategy = moveStrategy;
     }
 
+    public ArrayList<GameElement> getComposite() {
+        return composite;
+    }
+
     @Override
     public void render(Graphics2D g2) {
         for (var b: composite) {
