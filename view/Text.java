@@ -12,6 +12,7 @@ public class Text extends GameElement {
     public Text(String message, int x, int y) {
         super(x, y);
         this.message = message;
+        super.color = color.yellow;
     }
 
     @Override
@@ -24,8 +25,7 @@ public class Text extends GameElement {
 
     @Override
     public void move() {
-        ++x;
-        ++y;
+       
     }
     
 }

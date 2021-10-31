@@ -8,6 +8,7 @@ import model.Food;
 import model.GameElement;
 import model.Snake;
 import model.SnakeBody;
+import model.Snake.Event;
 import view.GameBoard;
 
 public class TimerListener implements ActionListener {
@@ -18,12 +19,14 @@ public class TimerListener implements ActionListener {
         this.gameBoard = gameBoard;
     }
     
+    // Game loop
     @Override
     public void actionPerformed(ActionEvent e) {
         for (var f: gameBoard.getCanvas().getFigures()) {
             f.move();
         }
-        detectCollision();
+        if (!gameBoard.isGameOver())
+            detectCollision();
         gameBoard.getCanvas().repaint();
     }
 
@@ -33,12 +36,24 @@ public class TimerListener implements ActionListener {
         Snake snake = null;
         for (var f: figures) {
             if ( f instanceof Snake) {
-                snake = (snake) f;
+                snake = (Snake) f;
                 break;
             }
         }
         if (snake == null) return;
 
+        //left game scene?
+        if (snake.x < 0 || snake.x >= GameBoard.WIDTH || snake.y < 0 || snake.y >= GameBoard.HEIGHT) { 
+            snake.notifyObservers(Event.LeftScene);
+            gameBoard.setGameOver(true);
+        }
+
+        //self collision : head collides with any part of the body
+        if (snake.SelfCollision()) {
+            snake.notifyObservers(Event.SelfCollision);
+            gameBoard.setGameOver(true);
+        }
+        
         // snake vs food
         var removeFoods = new ArrayList<GameElement>();
         for (var f: figures) {
@@ -47,6 +62,7 @@ public class TimerListener implements ActionListener {
                 if (f instanceof Food) {
                     removeFoods.add(f);
                     snake.getComposite().add(new SnakeBody(-100, -100));
+                    snake.notifyObservers(Event.AteFood);
                 }
             }
         }
