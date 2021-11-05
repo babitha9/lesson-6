@@ -1,6 +1,6 @@
 package model.strategyPattern;
 
-public class SnakeMoveStrategy {
+public interface SnakeMoveStrategy {
 
     public void moveAlgorithm();
 }

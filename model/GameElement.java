@@ -14,8 +14,8 @@ public abstract class GameElement {
     }
 
     public GameElement(int X, int Y) {
-        this.x = x;
-        this.y = y;
+        this.x = X;
+        this.y = Y;
     }
 
     public boolean collideWith(GameElement another) {

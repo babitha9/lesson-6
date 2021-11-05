@@ -7,10 +7,8 @@ import java.util.ArrayList;
 import model.observerPattern.Observer;
 import model.observerPattern.Subject;
 import model.strategyPattern.SnakeMoveAliveStrategy;
-import model.strategyPattern.SnakeMoveDeadStrategy;
 import model.strategyPattern.SnakeMoveStrategy;
 import model.strategyPattern.SnakeRenderAliveStrategy;
-import model.strategyPattern.SnakeRenderDeadStrategy;
 import model.strategyPattern.SnakeRenderStrategy;
 import view.GameBoard;
 

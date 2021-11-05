@@ -12,7 +12,7 @@ public class SnakeMoveDeadStrategy implements SnakeMoveStrategy {
     }
 
     @Override
-    public void moveAlogirthm() {
+    public void moveAlgorithm() {
         var composite = snake.getComposite();
         for(var s: composite) {
             s.y += GameBoard.CELL_SIZE;
@@ -23,7 +23,7 @@ public class SnakeMoveDeadStrategy implements SnakeMoveStrategy {
                 s.y = 0;
             }
         }
-        snake.y=0;
+        snake.y=0;        
     }
  
 }
